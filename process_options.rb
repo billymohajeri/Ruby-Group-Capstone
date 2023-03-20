@@ -25,6 +25,7 @@ def process_options(usr_inp)
   when 'C'
     puts 'C'
   else
-    puts "\e[31mInvalid selectin! please try again."
+    #puts "\e[31mInvalid selection! please try again."
+    puts "\e[31mInvalid selection! please try again. \e[0m"
   end
 end

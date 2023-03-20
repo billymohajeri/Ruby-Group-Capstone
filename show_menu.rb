@@ -1,4 +1,4 @@
-def show_menu
+def show_menu 
   puts "Please choose an option by entering a number:
     1 - List all books
     2 - List all music albums
