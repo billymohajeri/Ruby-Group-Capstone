@@ -28,4 +28,12 @@ class Item
     @lable = new_lable
     new_lable.items.push(self) unless new_lable.items.include?(self)
   end
+
+  def can_be_archived?
+    (Time.now.year - @publish_date.year) > 10
+  end
+
+  def move_to_archive()
+    @archived = can_be_archived? if can_be_archived?
+  end
 end
