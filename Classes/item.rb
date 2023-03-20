@@ -4,7 +4,7 @@ class Item
     @genre = genre
     @author = author
     @source = source
-    @lable = lable
+    @label = label
     @publish_date = publish_date
     @archived = false
   end
@@ -24,9 +24,9 @@ class Item
     new_source.items.push(self) unless new_source.items.include?(self)
   end
 
-  def lable
-    @lable = new_lable
-    new_lable.items.push(self) unless new_lable.items.include?(self)
+  def label
+    @label = new_label
+    new_label.items.push(self) unless new_label.items.include?(self)
   end
 
   def can_be_archived?
