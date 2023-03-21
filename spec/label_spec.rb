@@ -13,15 +13,15 @@ describe Label do
       expect(label.title).to eq('label')
     end
 
-    it 'should have a color' do   
+    it 'should have a color' do
       label = Label.new('label', 'red', [])
       expect(label.color).to eq('red')
     end
 
-    it 'should have an id' do  
+    it 'should have an id' do
       label = Label.new('label', 'red', [])
       expect(label.id).to be_an_instance_of(Integer)
-    end 
+    end
 
     it 'should have an array of items' do
       label = Label.new('label', 'red', [])
