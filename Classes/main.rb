@@ -10,7 +10,7 @@ def main
     user_input = gets.chomp.upcase
     puts
     if user_input == 'D'
-      puts "\e[31mThank you for using this app! ♥️"
+      puts "\e[31mThank you for using this app! ♥️ \e[0m"
       exit
     end
     process_options(user_input)
