@@ -2,7 +2,6 @@ require 'io/console'
 require './show_menu'
 require './process_options'
 
-
 def main
   $stdout.clear_screen
   loop do
