@@ -1,6 +1,6 @@
-def process_options(usr_inp)
+def process_options(usr_inp, app)
   options = {
-    '1' => -> { puts 'You chose option 1' },
+    '1' => -> { app.list_all_books },
     '2' => -> { puts 'You chose option 2' },
     '3' => -> { puts 'You chose option 3' },
     '4' => -> { puts 'You chose option 4' },
@@ -8,7 +8,7 @@ def process_options(usr_inp)
     '6' => -> { puts 'You chose option 6' },
     '7' => -> { puts 'You chose option 7' },
     '8' => -> { puts 'You chose option 8' },
-    '9' => -> { puts 'You chose option 9' },
+    '9' => -> { app.add_book },
     'A' => -> { puts 'You chose option A' },
     'B' => -> { puts 'You chose option B' },
     'C' => -> { puts 'You chose option C' }
