@@ -35,6 +35,7 @@
 - **Add books**
 - **Add albums**
 - **Add games**
+- **Unit tests for all implemented methods**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
