@@ -5,7 +5,6 @@ class Genre
   def initialize(_name, _items)
     @id = rand(1..1000)
     @title = title
-    @color = color
     @items = []
   end
 
