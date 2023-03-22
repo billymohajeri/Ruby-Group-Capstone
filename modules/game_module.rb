@@ -23,7 +23,7 @@ module GameModule
     multiplayer = gets.chomp.downcase == 'y'
     print 'Last played at [YYYY-MM-DD]: '
     last_played_at = validate_date(gets.chomp)
-    game = Game.new(publish_date, multiplayer, last_played_at)    
+    game = Game.new(publish_date, multiplayer, last_played_at)
     author = game_author
     author.add_item(game)
     @games << game
@@ -46,7 +46,6 @@ module GameModule
   end
 
   def load_games
-    games = load_from_file('games').map { |game| Game.new(game['publish_date'], game['multiplayer'], game['last_played_at']) }
-    games
+    load_from_file('games').map { |game| Game.new(game['publish_date'], game['multiplayer'], game['last_played_at']) }
   end
 end
