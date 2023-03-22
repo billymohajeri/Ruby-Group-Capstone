@@ -80,3 +80,4 @@ class App
     save_to_file(@genres.map(&:to_hash), 'genres')
   end
 end
+

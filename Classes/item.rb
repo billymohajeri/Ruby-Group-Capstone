@@ -1,5 +1,7 @@
 class Item
+  # new line
   attr_reader :id, :genre, :author, :source, :label, :publish_date, :archived
+
 
   def initialize(publish_date)
     @id = rand(1..1000)
