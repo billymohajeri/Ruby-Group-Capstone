@@ -24,6 +24,7 @@ module GameModule
     print 'Last played at [YYYY-MM-DD]: '
     last_played_at = validate_date(gets.chomp)
     game = Game.new(publish_date, multiplayer, last_played_at)
+
     author = game_author
     author.add_item(game)
     @games << game
@@ -31,14 +32,23 @@ module GameModule
   end
 
   def game_author
-    if @authors.empty?
+    print 'Do you want to add new author (1) or select from the list (2)? [Input the number]: '
+    type = gets.chomp.to_i
+    case type
+    when 1
       add_author
-      author_index = @authors[0].id
-    else
+      author_id = @authors[-1].id
+      puts @authors[-1].id
+      puts author_id
+    when 2
       list_authors
       print "\nEnter author ID: "
-      author_index = gets.chomp.to_i
+      author_id = gets.chomp.to_i
     end
-    find_author(author_index)
+    find_author(author_id)
+  end
+
+  def load_games
+    load_from_file('games').map { |game| Game.new(game['publish_date'], game['multiplayer'], game['last_played_at']) }
   end
 end
