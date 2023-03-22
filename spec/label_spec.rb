@@ -1,4 +1,5 @@
 require './Classes/label'
+require './Classes/item'
 require 'date'
 
 describe Label do
