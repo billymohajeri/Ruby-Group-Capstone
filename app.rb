@@ -25,7 +25,7 @@ class App
     @authors = load_authors
     @music_albums = []
     @genres = []
-
+  end
 
   def list_all_books
     puts "\nNo books added yet" if @books.empty?
@@ -110,7 +110,7 @@ class App
     @music_albums << MusicAlbum.new(on_spotify_bool, publish_date)
     puts 'Your music album has been added successfully!'
   end
-  
+
   def prepare_storage
     create_file('games')
     create_file('authors')
