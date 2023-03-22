@@ -40,5 +40,6 @@ class App
     print 'Publish Date[YYYY/MM/DD]:'
     publish_date = gets.chomp
     @books << Book.new(publisher, cover_state, publish_date)
+    puts 'Your book has been added successfully!'
   end
 end

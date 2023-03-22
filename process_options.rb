@@ -5,7 +5,7 @@ def process_options(usr_inp, app)
     '3' => -> { puts 'You chose option 3' },
     '4' => -> { puts 'You chose option 4' },
     '5' => -> { puts 'You chose option 5' },
-    '6' => -> { puts 'You chose option 6' },
+    '6' => -> { app.list_all_labels },
     '7' => -> { puts 'You chose option 7' },
     '8' => -> { puts 'You chose option 8' },
     '9' => -> { app.add_book },
