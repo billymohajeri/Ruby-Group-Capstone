@@ -2,6 +2,7 @@ require 'json'
 
 module StorageModule
   def create_file(file_name)
+    FileUtils.mkdir_p('./json')
     @path = "./json/#{file_name}.json"
     File.write(@path, '[]') unless File.file?(@path)
   end
