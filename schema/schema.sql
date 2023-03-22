@@ -29,6 +29,9 @@ CREATE TABLE items (
 CREATE TABLE games (
   id SERIAL PRIMARY KEY,
   item_id INTEGER REFERENCES items(id),
+  author_id INTEGER REFERENCES authors(id),
+  genre_id INTEGER REFERENCES genres(id),
+  label_id INTEGER REFERENCES labels(id)
   multiplayer BOOLEAN,
   last_played_at DATE
 );
@@ -36,6 +39,9 @@ CREATE TABLE games (
 CREATE TABLE books (
   id SERIAL PRIMARY KEY,
   item_id INTEGER REFERENCES items(id),
+  author_id INTEGER REFERENCES authors(id),
+  genre_id INTEGER REFERENCES genres(id),
+  label_id INTEGER REFERENCES labels(id)
   publisher TEXT,
   cover_state TEXT
 );
@@ -43,5 +49,8 @@ CREATE TABLE books (
 CREATE TABLE music_albums (
   id SERIAL PRIMARY KEY,
   item_id INTEGER REFERENCES items(id),
+  author_id INTEGER REFERENCES authors(id),
+  genre_id INTEGER REFERENCES genres(id),
+  label_id INTEGER REFERENCES labels(id)
   on_spotify BOOLEAN
 );
