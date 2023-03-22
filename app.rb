@@ -13,10 +13,10 @@ class App
     puts "\nNo books added yet" if @books.empty?
     puts "\nAll Books:\n\n"
     puts "\nPublisher \t| Cover State \t| Publish Date"
-    puts "\n--------------------------------------------"
+    puts "--------------------------------------------"
     @books.each do |book|
-      puts "#{book.publisher} \t| #{book.cover_state} \t| #{book.publish_date}"
-      puts "\n--------------------------------------------"
+      puts "#{book.publisher} \t\t| #{book.cover_state} \t\t| #{book.publish_date}"
+      puts "--------------------------------------------"
     end
   end
 
