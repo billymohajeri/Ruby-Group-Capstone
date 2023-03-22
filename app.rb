@@ -130,7 +130,6 @@ class App
   def save_data
     save_to_file(@games.map(&:to_hash), 'games')
     save_to_file(@authors.map(&:to_hash), 'authors')
-    save_to_file(@music_albums.map(&:to_hash), 'music_albums')
-    save_to_file(@genres.map(&:to_hash), 'genres')
   end
 end
+>>>>>>>>> Temporary merge branch 2
