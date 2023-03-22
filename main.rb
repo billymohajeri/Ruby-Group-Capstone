@@ -4,6 +4,7 @@ require './process_options'
 require './app'
 
 def main
+  app = App.new
   $stdout.clear_screen
   app = App.new
   loop do
@@ -14,7 +15,7 @@ def main
       puts "\e[31mThank you for using this app! ♥️ \e[0m"
       exit
     end
-    process_options(app, user_input)
+    process_options(user_input, app)
   end
 end
 main
