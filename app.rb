@@ -67,8 +67,8 @@ class App
     print 'Publish Date[YYYY/MM/DD]:'
     publish_date = gets.chomp
     book = Book.new(publisher, cover_state, publish_date)
-    label = book_label
-    label.add_item(book)
+    book_label
+    # label.add_item(book)
     @books << book
     puts 'Your book has been added successfully!'
     save_books
@@ -87,15 +87,18 @@ class App
   end
 
   def book_label
-    if @labels.empty?
+    print 'Do you want to add new label (1) or select from the list (2)? [Input the number]: '
+    type = gets.chomp.to_i
+    case type
+    when 1
       add_label
-      label_index = @labels[0].id
-    else
+      label_id = @labels[-1].id
+    when 2
       list_all_labels
-      print "\nEnter author ID: "
-      label_index = gets.chomp.to_i
+      print "\nEnter Label id: "
+      label_id = gets.chomp.to_i
     end
-    find_label(label_index)
+    find_label(label_id)
   end
 
   def find_label(id)

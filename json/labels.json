@@ -2,5 +2,13 @@
   {
     "title": "Amazing",
     "color": "Purple"
+  },
+  {
+    "title": "New Label",
+    "color": "Pink"
+  },
+  {
+    "title": "1",
+    "color": "silver"
   }
 ]

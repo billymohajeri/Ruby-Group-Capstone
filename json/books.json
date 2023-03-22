@@ -48,5 +48,30 @@
     "publisher": "New Book",
     "cover_state": "Excellent",
     "publish_date": "2023-03-23"
+  },
+  {
+    "publisher": "das",
+    "cover_state": "qwe",
+    "publish_date": "2012-02-14"
+  },
+  {
+    "publisher": "ewqeqw",
+    "cover_state": "bad",
+    "publish_date": "2000-09-09"
+  },
+  {
+    "publisher": "Global",
+    "cover_state": "Good",
+    "publish_date": "2012-05-25"
+  },
+  {
+    "publisher": "Universal",
+    "cover_state": "bad",
+    "publish_date": "2022-12-12"
+  },
+  {
+    "publisher": "penguin",
+    "cover_state": "good",
+    "publish_date": "1999-09-09"
   }
 ]
