@@ -7,12 +7,14 @@ require './modules/game_module'
 require './modules/author_module'
 require './modules/common'
 require './modules/preserve_books'
+require './modules/preserve_labels'
 
 class App
   include GameModule
   include AuthorModule
   include CommonModule
   include PreserveBooks
+  include PreserveLabels
 
   attr_reader :books, :labels, :games, :authors
 
@@ -22,6 +24,7 @@ class App
     @games = []
     @authors = []
     read_books
+    read_labels
   end
 
   def list_all_books
@@ -54,8 +57,40 @@ class App
     cover_state = gets.chomp
     print 'Publish Date[YYYY/MM/DD]:'
     publish_date = gets.chomp
-    @books << Book.new(publisher, cover_state, publish_date)
+    book = Book.new(publisher, cover_state, publish_date)
+    label = book_label
+    label.add_item(book)
+    @books << book
     puts 'Your book has been added successfully!'
     save_books
+  end
+
+  def add_label
+    puts "\nAdd author details:"
+    print 'Title: '
+    title = empty?(gets.chomp.to_s)
+    print 'Color: '
+    color = empty?(gets.chomp.to_s)
+    label = Label.new(title, color)
+    @labels << label
+    puts "\e[32mLabel added successfully!\e[0m"
+    save_labels
+  end
+
+  def book_label
+    if @labels.empty?
+      add_label
+      label_index = @labels[0].id
+    else
+      list_all_labels
+      print "\nEnter author ID: "
+      label_index = gets.chomp.to_i
+    end
+    find_label(label_index)
+  end
+
+  def find_label(id)
+    labels = @labels.select { |label| label.id == id }
+    labels.first
   end
 end
