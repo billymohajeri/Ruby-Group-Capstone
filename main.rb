@@ -12,6 +12,7 @@ def main
     user_input = gets.chomp.upcase
     puts
     if user_input == 'D'
+      app.save_data
       puts "\e[31mThank you for using this app! ♥️ \e[0m"
       exit
     end
