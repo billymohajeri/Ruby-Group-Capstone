@@ -6,7 +6,7 @@ module GameModule
     else
       puts "\nList of Games\n\n"
       puts '-------------------------------------------------------------------------'
-      puts "| Publish Date \t\t| Game Mode \t\t| Last Played At \t|"
+      puts "| Publish Date \t\t| Mode \t\t\t| Last Played At \t|"
       puts '-------------------------------------------------------------------------'
       @games.each do |game|
         puts "| #{game.publish_date} \t\t| #{game.multiplayer ? 'Multiplayer' : 'Singleplayer'} \t\t| #{game.last_played_at} \t\t|"

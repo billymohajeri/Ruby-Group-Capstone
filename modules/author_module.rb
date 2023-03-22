@@ -5,12 +5,12 @@ module AuthorModule
       puts
     else
       puts "\nList of Authors \n\n"
-      puts '-----------------------------------------------------------------'
-      puts "| ID \t\t| First Name \t\t| Last Name \t\t|"
-      puts '-----------------------------------------------------------------'
+      puts '---------------------------------------------------------'
+      puts "| ID \t\t| Name \t\t\t\t\t|"
+      puts '---------------------------------------------------------'
       @authors.each_with_index do |author, _index|
-        puts "| #{author.id} \t\t| #{author.first_name} \t\t\t| #{author.last_name} \t\t\t|"
-        puts '-----------------------------------------------------------------'
+        puts "| #{author.id} \t\t| #{author.first_name} #{author.last_name} \t\t\t\t|"
+        puts '---------------------------------------------------------'
       end
     end
   end
