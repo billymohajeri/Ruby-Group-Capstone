@@ -1,16 +1,16 @@
+require 'active_support/all'
 require './Classes/item'
-require 'date'
 
 class Game < Item
   attr_reader :multiplayer, :last_played_at
 
-  def initialize(multiplayer, last_played_at, publish_date)
+  def initialize(publish_date, multiplayer, last_played_at)
     super(publish_date)
     @multiplayer = multiplayer
     @last_played_at = last_played_at
   end
 
   def can_be_archived?
-    super && (Date.today.year - DateTime.parse(@last_played_at).to_date.year) > 2
+    super && last_played_at < 2.years.ago
   end
 end
