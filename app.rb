@@ -6,18 +6,22 @@ require './Classes/author'
 require './modules/game_module'
 require './modules/author_module'
 require './modules/common'
+require './modules/storage'
+require 'json'
 
 class App
   include GameModule
   include AuthorModule
   include CommonModule
+  include StorageModule
   attr_reader :books, :labels, :games, :authors
 
   def initialize
+    prepare_storage
     @books = []
     @labels = []
-    @games = []
-    @authors = []
+    @games = load_games
+    @authors = load_authors
   end
 
   def list_all_books
@@ -52,5 +56,15 @@ class App
     publish_date = gets.chomp
     @books << Book.new(publisher, cover_state, publish_date)
     puts 'Your book has been added successfully!'
+  end
+
+  def prepare_storage
+    create_file('games')
+    create_file('authors')
+  end
+
+  def save_data
+    save_to_file(@games.map(&:to_hash), 'games')
+    save_to_file(@authors.map(&:to_hash), 'authors')
   end
 end
