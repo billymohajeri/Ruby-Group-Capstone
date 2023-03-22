@@ -2,8 +2,8 @@ class Genre
   attr_accessor :name
   attr_reader :id, :items
 
-  def initialize(name, _items)
-    @id = rand(1..1000)
+  def initialize(name)
+    @id = Random.rand(1..1000)
     @name = name
     @items = []
   end
@@ -11,5 +11,13 @@ class Genre
   def add_item(item)
     @items << item
     item.genre = self
+  end
+
+  def to_hash
+    {
+      id: @id,
+      name: @name,
+      items: @items.map(&:to_hash)
+    }
   end
 end
