@@ -1,12 +1,23 @@
 require './Classes/book'
 require './Classes/label'
+require './Classes/item'
+require './Classes/game'
+require './Classes/author'
+require './modules/game_module'
+require './modules/author_module'
+require './modules/common'
 
 class App
-  attr_reader :books, :labels
+  include GameModule
+  include AuthorModule
+  include CommonModule
+  attr_reader :books, :labels, :games, :authors
 
   def initialize
     @books = []
     @labels = []
+    @games = []
+    @authors = []
   end
 
   def list_all_books

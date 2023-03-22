@@ -6,6 +6,7 @@ require './app'
 def main
   app = App.new
   $stdout.clear_screen
+  app = App.new
   loop do
     show_menu
     user_input = gets.chomp.upcase
