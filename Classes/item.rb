@@ -1,13 +1,9 @@
 class Item
   # new line
-  attr_reader :id, :genre, :author, :source, :label, :publish_date, :archived
+  attr_reader :id, :genre, :author, :source, :label, :archived, :publish_date
 
   def initialize(publish_date)
     @id = rand(1..1000)
-    # @genre = genre
-    # @author = author
-    # @source = source
-    # @label = label
     @genre = nil
     @author = nil
     @source = nil

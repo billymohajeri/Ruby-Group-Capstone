@@ -6,11 +6,14 @@ require './Classes/author'
 require './modules/game_module'
 require './modules/author_module'
 require './modules/common'
+require './modules/preserve_books'
 
 class App
   include GameModule
   include AuthorModule
   include CommonModule
+  include PreserveBooks
+
   attr_reader :books, :labels, :games, :authors
 
   def initialize
@@ -18,6 +21,7 @@ class App
     @labels = []
     @games = []
     @authors = []
+    read_books
   end
 
   def list_all_books
@@ -52,5 +56,6 @@ class App
     publish_date = gets.chomp
     @books << Book.new(publisher, cover_state, publish_date)
     puts 'Your book has been added successfully!'
+    save_books
   end
 end
