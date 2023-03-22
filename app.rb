@@ -12,7 +12,6 @@ require './Classes/music_album'
 require './modules/storage'
 require 'json'
 
-
 class App
   include GameModule
   include AuthorModule
@@ -35,7 +34,6 @@ class App
     @genres = []
     read_books
     read_labels
-
   end
 
   def list_all_books
