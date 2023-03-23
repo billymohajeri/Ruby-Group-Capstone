@@ -13,4 +13,13 @@ class Label
     @items << item
     item.label = self
   end
+
+  def to_hash
+    {
+      type: self.class.name,
+      title: @title,
+      color: @color,
+      items: @items.map(&:to_hash)
+    }
+  end
 end
