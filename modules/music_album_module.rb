@@ -10,13 +10,13 @@ module MusicAlbumModule
   end
 
   def list_music_albums
+    puts '-------------------------------------------------------------------------'
+    puts "| Index \t| On Spotify \t\t| Publish Date \t\t\t|"
+    puts '-------------------------------------------------------------------------'
+    @music_albums.each_with_index do |music_album, index|
+      puts "| #{index} \t\t| #{music_album.on_spotify ? 'On Spotify' : 'Not On Spotify'} \t\t| #{music_album.publish_date} \t\t|"
       puts '-------------------------------------------------------------------------'
-      puts "| Index \t| On Spotify \t\t| Publish Date \t\t\t|"
-      puts '-------------------------------------------------------------------------'
-      @music_albums.each_with_index do |music_album, index|
-        puts "| #{index} \t\t| #{music_album.on_spotify ? 'On Spotify' : 'Not On Spotify'} \t\t| #{music_album.publish_date} \t\t|"
-        puts '-------------------------------------------------------------------------'
-      end
+    end
   end
 
   def add_music_album
