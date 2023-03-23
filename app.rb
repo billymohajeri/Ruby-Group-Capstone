@@ -30,22 +30,21 @@ class App
   def initialize
     prepare_storage
     @books = []
-    @labels = []
     @games = load_games
     @authors = load_authors
     @music_albums = load_music_albums
     @genres = load_genres
     read_books
-    read_labels
+    @labels = read_labels
   end
 
   def list_all_books
     puts "\nNo books added yet" if @books.empty?
     puts "\nAll Books:\n\n"
-    puts "\nPublisher \t| Cover State \t| Publish Date"
+    puts "\n| Index \t| Publisher \t| Cover State \t| Publish Date"
     puts '--------------------------------------------'
-    @books.each do |book|
-      puts "#{book.publisher} \t\t| #{book.cover_state} \t\t| #{book.publish_date}"
+    @books.each_with_index do |book, index|
+      puts " |#{index} \t\t|#{book.publisher} \t\t| #{book.cover_state} \t\t| #{book.publish_date}"
       puts '--------------------------------------------'
     end
   end
@@ -53,10 +52,10 @@ class App
   def list_all_labels
     puts "\nNo labels added yet" if @labels.empty?
     puts "\nAll Labels:\n\n"
-    puts "\nLabels \t| Color"
+    puts "\n| Index \t| Labels \t| Color"
     puts "\n--------------------------------------------"
-    @labels.each do |label|
-      puts "#{label.title} \t| #{label.color}"
+    @labels.each_with_index do |label, index|
+      puts "| #{index} \t\t| #{label.title} \t| #{label.color}"
       puts "\n--------------------------------------------"
     end
   end
@@ -70,11 +69,12 @@ class App
     print 'Publish Date[YYYY/MM/DD]:'
     publish_date = gets.chomp
     book = Book.new(publisher, cover_state, publish_date)
-    book_label
-    # label.add_item(book)
+    label = book_label
+    label.add_item(book)
     @books << book
     puts 'Your book has been added successfully!'
     save_books
+    save_labels
   end
 
   def add_label
@@ -90,18 +90,24 @@ class App
   end
 
   def book_label
-    print 'Do you want to add new label (1) or select from the list (2)? [Input the number]: '
+    print "\nDo you want to add label (1) or show list (2)? [Input the number]: "
     type = gets.chomp.to_i
     case type
     when 1
       add_label
-      label_id = @labels[-1].id
+      label_id = @labels.length - 1
     when 2
-      list_all_labels
-      print "\nEnter Label id: "
-      label_id = gets.chomp.to_i
+      if @labels.empty?
+        puts "\n\e[31mNo labels available, please add a label!\e[0m\n"
+        add_label
+        label_id = @labels.length - 1
+      else
+        puts "\nSelect an author from the following list by index (not id) \n"
+        list_all_labels
+        label_id = idx_validate(@labels, gets.chomp.to_i)
+      end
     end
-    find_label(label_id)
+    @labels[label_id]
   end
 
   def find_label(id)
@@ -114,6 +120,8 @@ class App
     create_file('authors')
     create_file('music_albums')
     create_file('genres')
+    create_file('labels')
+    create_file('books')
   end
 
   def save_data

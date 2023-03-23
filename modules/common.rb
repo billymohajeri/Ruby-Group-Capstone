@@ -16,6 +16,16 @@ module CommonModule
     end
   end
 
+  def idx_validate(arr, idx)
+    if idx > arr.length - 1 || idx.negative?
+      print "\e[31mEnter a valid index number: \e[0m"
+      answer = gets.chomp.to_i
+      idx_validate(arr, answer)
+    else
+      idx
+    end
+  end
+
   def empty?(text)
     if text.empty? || text == ''
       print "\e[31mEnter valid data: \e[0m"

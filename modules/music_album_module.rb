@@ -1,17 +1,21 @@
 module MusicAlbumModule
-  def list_music_albums
+  def show_list_music_albums
     if @music_albums.empty?
       puts "\n\e[31mNo music albums available!\e[0m\n"
       puts
     else
       puts "\nList of Music Albums\n\n"
+      list_music_albums
+    end
+  end
+
+  def list_music_albums
+    puts '-------------------------------------------------------------------------'
+    puts "| Index \t| On Spotify \t\t| Publish Date \t\t\t|"
+    puts '-------------------------------------------------------------------------'
+    @music_albums.each_with_index do |music_album, index|
+      puts "| #{index} \t\t| #{music_album.on_spotify ? 'On Spotify' : 'Not On Spotify'} \t\t| #{music_album.publish_date} \t\t|"
       puts '-------------------------------------------------------------------------'
-      puts "| on Spotify \t\t| Publish Date \t\t\t|"
-      puts '-------------------------------------------------------------------------'
-      @music_albums.each do |music_album|
-        puts "| #{music_album.on_spotify ? 'On Spotify' : 'Not On Spotify'} \t\t| #{music_album.publish_date} \t\t|"
-        puts '-------------------------------------------------------------------------'
-      end
     end
   end
 
@@ -31,18 +35,24 @@ module MusicAlbumModule
   end
 
   def music_album_genre
-    print 'Do you want to add new genre (1) or select from the list (2)? [Input the number]: '
+    print "\nDo you want to add genre (1) or show list (2)? [Input the number]: "
     type = gets.chomp.to_i
     case type
     when 1
       add_genre
-      genre_id = @genres[-1].id
+      genre_id = @genres.length - 1
     when 2
-      list_genres
-      print "\nEnter genre ID: "
-      genre_id = gets.chomp.to_i
+      if @genres.empty?
+        puts "\n\e[31mNo genre available, please add genre!\e[0m\n"
+        add_genre
+        genre_id = @genres.length - 1
+      else
+        puts "\nSelect an author from the following list by index (not id) \n"
+        list_genres
+        genre_id = idx_validate(@genres, gets.chomp.to_i)
+      end
     end
-    find_genre(genre_id)
+    @genres[genre_id]
   end
 
   def load_music_albums
