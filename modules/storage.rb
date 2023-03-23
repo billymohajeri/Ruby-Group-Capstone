@@ -8,7 +8,7 @@ module StorageModule
   end
 
   def save_to_file(data, file_name)
-    json = JSON.generate(data)
+    json = JSON.pretty_generate(data)
     File.write("./json/#{file_name}.json", json)
   end
 
