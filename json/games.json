@@ -1,14 +1,1 @@
-[
-  {
-    "type": "Game",
-    "publish_date": "2002-12-09",
-    "multiplayer": true,
-    "last_played_at": "2007-02-12"
-  },
-  {
-    "type": "Game",
-    "publish_date": "2007-12-12",
-    "multiplayer": true,
-    "last_played_at": "2009-09-09"
-  }
-]
+[]

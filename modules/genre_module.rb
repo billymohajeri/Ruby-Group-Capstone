@@ -1,17 +1,21 @@
 module GenreModule
-  def list_genres
+  def show_list_genres
     if @genres.empty?
       puts "\n\e[31mNo genres available!\e[0m\n"
       puts
     else
       puts "\nList of Genres \n\n"
+      list_genres
+    end
+  end
+
+  def list_genres
+    puts '---------------------------------------------------------'
+    puts "| Index \t| ID \t\t| Name \t\t\t\t\t|"
+    puts '---------------------------------------------------------'
+    @genres.each_with_index do |genre, index|
+      puts "| #{index} \t\t| #{genre.id} \t\t| #{genre.name} \t\t\t\t|"
       puts '---------------------------------------------------------'
-      puts "| ID \t\t| Name \t\t\t\t\t|"
-      puts '---------------------------------------------------------'
-      @genres.each_with_index do |genre, _index|
-        puts "| #{genre.id} \t\t| #{genre.name} \t\t\t\t|"
-        puts '---------------------------------------------------------'
-      end
     end
   end
 

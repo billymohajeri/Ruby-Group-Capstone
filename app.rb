@@ -120,6 +120,8 @@ class App
     create_file('authors')
     create_file('music_albums')
     create_file('genres')
+    create_file('labels')
+    create_file('books')
   end
 
   def save_data
