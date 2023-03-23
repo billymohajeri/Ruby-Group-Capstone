@@ -5,6 +5,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
+  - [🎥 Presentation](#video-link)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -32,9 +33,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Add books**
-- **Add albums**
-- **Add games**
+- **Add books and labels**
+- **Add albums and genres**
+- **Add games and authors**
 - **Unit tests for all implemented methods**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -44,6 +45,13 @@
 - [Not deployed yet...]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📺 Presentation <a name="video-link"></a>
+
+[Presentation about this project](https://drive.google.com/file/d/1Cj5E3a9HybXMu6uV9UnCdYcOxXZrkXx6/view?usp=sharing)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -100,8 +108,6 @@ gem install
 
 - [ ] **Add new source**
 - [ ] **Add new movie**
-- [ ] **Add new Music album**
-- [ ] **List all music albums**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
