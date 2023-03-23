@@ -8,8 +8,8 @@ module GameModule
       list_games
     end
   end
-  def list_games
 
+  def list_games
     puts '-----------------------------------------------------------------------------------------'
     puts "| Index \t| Publish Date \t\t| Mode \t\t\t| Last Played At \t|"
     puts '-----------------------------------------------------------------------------------------'
@@ -17,7 +17,6 @@ module GameModule
       puts "| #{index} \t\t| #{game.publish_date} \t\t| #{game.multiplayer ? 'Multiplayer' : 'Singleplayer'} \t\t| #{game.last_played_at} \t\t|"
       puts '-----------------------------------------------------------------------------------------'
     end
-    
   end
 
   def add_game()
@@ -43,7 +42,7 @@ module GameModule
       add_author
       author_id = @authors.length - 1
     when 2
-      if @authors.empty? 
+      if @authors.empty?
         puts "\n\e[31mNo authors available, please add an author!\e[0m\n"
         add_author
         author_id = @authors.length - 1
@@ -52,8 +51,8 @@ module GameModule
         list_authors
         author_id = idx_validate(@authors, gets.chomp.to_i)
       end
-    end    
-    @authors[author_id]   
+    end
+    @authors[author_id]
   end
 
   def load_games

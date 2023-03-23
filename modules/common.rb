@@ -17,7 +17,7 @@ module CommonModule
   end
 
   def idx_validate(arr, idx)
-    if idx > arr.length - 1 || idx < 0
+    if idx > arr.length - 1 || idx.negative?
       print "\e[31mEnter a valid index number: \e[0m"
       answer = gets.chomp.to_i
       idx_validate(arr, answer)

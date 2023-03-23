@@ -2,7 +2,7 @@ module AuthorModule
   def show_list_authors
     if @authors.empty?
       puts "\n\e[31mNo authors available!\e[0m\n"
-    else  
+    else
       puts "\nList of Authors \n\n"
       list_authors
     end
@@ -30,7 +30,7 @@ module AuthorModule
   end
 
   def find_author(id)
-    authors = @authors.select { |author| author.id == id }   
+    authors = @authors.select { |author| author.id == id }
     authors.first
   end
 
