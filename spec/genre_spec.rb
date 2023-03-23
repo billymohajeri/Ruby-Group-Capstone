@@ -5,7 +5,7 @@ require 'date'
 describe Genre do
   context 'Genre class tests' do
     before(:each) do
-      @genre = Genre.new('g', [])
+      @genre = Genre.new('g')
     end
 
     it 'should create an instance of Genre class' do
